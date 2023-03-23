@@ -1,20 +1,25 @@
 import { useReducer } from 'react';
 
+import './index.css';
+
 import Container from './components/Container/Container';
 import Screen from './components/Screen/Screen';
-
-import './index.css';
 import ButtonsContainer from './components/Buttons/ButtonsContainer';
+import { reducer } from './reducer/reducer';
+
 const App = () => {
-  // const [{ currentOperand, previousOperand, operation }, dispatch] = useReducer(
-  //   reducer,
-  //   {}
-  // );
+  const [{ currentOperand, previousOperand, operation }, dispatch] = useReducer(
+    reducer,
+    {}
+  );
 
   return (
     <Container>
-      <Screen />
-      <ButtonsContainer />
+      <Screen
+        currentOperand={currentOperand}
+        previousOperand={previousOperand}
+      />
+      <ButtonsContainer dispatch={dispatch} />
     </Container>
   );
 };
