@@ -7,16 +7,28 @@
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(to right, #178fca, #b5b469);
+  background: linear-gradient(to right, #7017ca, #69b5a6);
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .calcuator-grid {
   display: grid;
-  margin-top: 2rem;
   grid-template-columns: repeat(4, 6rem);
   grid-template-rows: minmax(7rem, auto) repeat(5, 5rem);
   padding: 20px;
   justify-content: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, .65);
+  width: 400px;
+
 }
 
 .calcuator-grid>button {
