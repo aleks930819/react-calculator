@@ -3,26 +3,24 @@ import { ACTIONS } from '../../reducer/reducer';
 const OperationButton = ({ dispatch, operation, span }) => {
   const className = `${span ? 'span-two' : ''}`;
 
-  const clickHandler = () => {
-    if (operation === 'AC') {
-      dispatch({ type: ACTIONS.CLEAR });
-    }
-
-    if (operation === 'DEL') {
-      dispatch({ type: ACTIONS.DELETE_DIGIT });
-    }
-
-    if (operation === '=') {
-      dispatch({ type: ACTIONS.EVALUATE });
-    }
-
-    if (['+', '-', '*', '÷'].includes(operation)) {
-      dispatch({ type: ACTIONS.CHOOSE_OPERATION, payload: { operation } });
+  const clickHandler = (operation) => {
+    switch (operation) {
+      case 'AC':
+        return dispatch({ type: ACTIONS.CLEAR });
+      case 'DEL':
+        return dispatch({ type: ACTIONS.DELETE_DIGIT });
+      case '=':
+        return dispatch({ type: ACTIONS.EVALUATE });
+      default:
+        return dispatch({
+          type: ACTIONS.CHOOSE_OPERATION,
+          payload: { operation },
+        });
     }
   };
 
   return (
-    <button className={className} onClick={clickHandler}>
+    <button className={className} onClick={() => clickHandler(operation)}>
       {operation}
     </button>
   );

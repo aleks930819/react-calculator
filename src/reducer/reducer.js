@@ -68,6 +68,29 @@ export const reducer = (state, { type, payload }) => {
         currentOperand: evaluate(state),
       };
 
+    case ACTIONS.DELETE_DIGIT:
+      if (state.overwrite) {
+        return {
+          ...state,
+          overwrite: false,
+          currentOperand: null,
+        };
+      }
+
+      if (state.currentOperand == null) {
+        return state;
+      }
+
+      if (state.currentOperand.length === 1) {
+        return {
+          ...state,
+          currentOperand: null,
+        };
+      }
+      return {
+        ...state,
+        currentOperand: state.currentOperand.slice(0, -1),
+      };
     case ACTIONS.CLEAR:
       return {};
 
