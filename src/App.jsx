@@ -18,6 +18,7 @@ const App = () => {
       <Screen
         currentOperand={currentOperand}
         previousOperand={previousOperand}
+        operation={operation}
       />
       <ButtonsContainer dispatch={dispatch} />
     </Container>
