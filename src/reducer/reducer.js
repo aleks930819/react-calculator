@@ -1,3 +1,5 @@
+import { evaluate } from '../utils';
+
 export const ACTIONS = {
   ADD_DIGIT: 'add-digit',
   CHOOSE_OPERATION: 'choose-operation',
@@ -44,9 +46,26 @@ export const reducer = (state, { type, payload }) => {
 
       return {
         ...state,
-        // previousOperand: evaluate(state),
+        previousOperand: evaluate(state),
         currentOperand: null,
         operation: payload.operation,
+      };
+
+    case ACTIONS.EVALUATE:
+      if (
+        state.currentOperand == null ||
+        state.previousOperand == null ||
+        state.operation == null
+      ) {
+        return state;
+      }
+
+      return {
+        ...state,
+        overwrite: true,
+        previousOperand: null,
+        operation: null,
+        currentOperand: evaluate(state),
       };
 
     case ACTIONS.CLEAR:

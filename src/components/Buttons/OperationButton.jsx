@@ -9,14 +9,16 @@ const OperationButton = ({ dispatch, operation, span }) => {
     }
 
     if (operation === 'DEL') {
-      dispatch({ type: ACTIONS.DELETE_DIGIT});
+      dispatch({ type: ACTIONS.DELETE_DIGIT });
     }
 
     if (operation === '=') {
-      dispatch({ type: ACTIONS.EVALUATE});
+      dispatch({ type: ACTIONS.EVALUATE });
     }
 
-    dispatch({ type: ACTIONS.CHOOSE_OPERATION, payload: { operation } });
+    if (['+', '-', '*', '÷'].includes(operation)) {
+      dispatch({ type: ACTIONS.CHOOSE_OPERATION, payload: { operation } });
+    }
   };
 
   return (
