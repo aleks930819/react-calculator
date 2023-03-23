@@ -13,6 +13,9 @@ export const reducer = (state, { type, payload }) => {
         currentOperand: `${state.currentOperand || ''}${payload.digit}`,
       };
 
+    case ACTIONS.CLEAR:
+      return {};
+
     default:
       return state;
   }

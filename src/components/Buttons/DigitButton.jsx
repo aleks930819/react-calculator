@@ -1,4 +1,4 @@
-import { ACTIONS } from '../../App';
+import { ACTIONS } from '../../reducer/reducer';
 
 const DigitButton = ({ dispatch, digit }) => {
   return (

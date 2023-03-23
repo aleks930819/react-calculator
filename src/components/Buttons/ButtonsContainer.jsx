@@ -4,7 +4,7 @@ import OperationButton from './OperationButton';
 const ButtonsContainer = ({ dispatch }) => {
   return (
     <>
-      <OperationButton operation="AC" span={true} />
+      <OperationButton dispatch={dispatch} operation="AC" span={true} />
       <OperationButton operation="DEL" />
       <OperationButton operation="÷" />
       <DigitButton dispatch={dispatch} digit="1" />
