@@ -1,6 +1,10 @@
 import { ACTIONS } from '../../reducer/reducer';
+import { CalculatorContext } from '../../context/CalculatorContext';
+import { useContext } from 'react';
 
-const OperationButton = ({ dispatch, operation, span }) => {
+const OperationButton = ({ operation, span }) => {
+  const { dispatch } = useContext(CalculatorContext);
+
   const className = `${span ? 'span-two' : ''}`;
 
   const clickHandler = (operation) => {

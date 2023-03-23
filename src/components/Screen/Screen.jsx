@@ -1,5 +1,9 @@
+import { useContext } from 'react';
 import { formatOperand } from '../../utils';
-const Screen = ({ previousOperand, operation, currentOperand }) => {
+import { CalculatorContext } from '../../context/CalculatorContext';
+const Screen = () => {
+  const { previousOperand, operation, currentOperand } =
+    useContext(CalculatorContext).state;
   return (
     <div className="output">
       <div className="previous-operand">

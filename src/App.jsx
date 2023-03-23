@@ -1,27 +1,18 @@
-import { useReducer } from 'react';
-
 import './index.css';
 
 import Container from './components/Container/Container';
 import Screen from './components/Screen/Screen';
 import ButtonsContainer from './components/Buttons/ButtonsContainer';
-import { reducer } from './reducer/reducer';
+import CalculatorProvider from './context/CalculatorContext';
 
 const App = () => {
-  const [{ currentOperand, previousOperand, operation }, dispatch] = useReducer(
-    reducer,
-    {}
-  );
-
   return (
-    <Container>
-      <Screen
-        currentOperand={currentOperand}
-        previousOperand={previousOperand}
-        operation={operation}
-      />
-      <ButtonsContainer dispatch={dispatch} />
-    </Container>
+    <CalculatorProvider>
+      <Container>
+        <Screen />
+        <ButtonsContainer />
+      </Container>
+    </CalculatorProvider>
   );
 };
 
