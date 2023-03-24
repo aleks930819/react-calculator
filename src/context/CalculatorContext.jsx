@@ -1,5 +1,5 @@
 import { createContext, useReducer } from 'react';
-import { reducer } from '../reducer/reducer';
+import { calculatorReducer } from './CalucaltorReducer';
 
 export const CalculatorContext = createContext();
 
@@ -11,7 +11,7 @@ const initialState = {
 };
 
 const CalculatorProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(calculatorReducer, initialState);
 
   return (
     <CalculatorContext.Provider value={{ state, dispatch }}>

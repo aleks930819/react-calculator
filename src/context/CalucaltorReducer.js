@@ -7,7 +7,7 @@ export const ACTIONS = {
   DELETE_DIGIT: 'delete-digit',
   EVALUATE: 'evaluate',
 };
-export const reducer = (state, { type, payload }) => {
+export const calculatorReducer = (state, { type, payload }) => {
   switch (type) {
     case ACTIONS.ADD_DIGIT:
       if (payload.digit === '0' && state.currentOperand === '0') {

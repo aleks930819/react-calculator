@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { ACTIONS } from '../../reducer/reducer';
+import { ACTIONS } from '../../context/CalucaltorReducer';
 import { CalculatorContext } from '../../context/CalculatorContext';
 
 const DigitButton = ({ digit }) => {

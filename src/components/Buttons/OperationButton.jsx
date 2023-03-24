@@ -1,4 +1,4 @@
-import { ACTIONS } from '../../reducer/reducer';
+import { ACTIONS } from '../../context/CalucaltorReducer';
 import { CalculatorContext } from '../../context/CalculatorContext';
 import { useContext } from 'react';
 
